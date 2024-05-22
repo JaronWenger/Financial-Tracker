@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Financial-Tracker/static/css/main.25564420.css",
+    "main.js": "/Financial-Tracker/static/js/main.9d786f99.js",
+    "index.html": "/Financial-Tracker/index.html",
+    "main.25564420.css.map": "/Financial-Tracker/static/css/main.25564420.css.map",
+    "main.9d786f99.js.map": "/Financial-Tracker/static/js/main.9d786f99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25564420.css",
+    "static/js/main.9d786f99.js"
+  ]
+}
