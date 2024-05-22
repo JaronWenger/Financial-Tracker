@@ -1,0 +1,27 @@
+
+
+.Row {
+  display: flex; /* Use flexbox to arrange items horizontally */
+  justify-content: center; /* Center the items horizontally */
+}
+.Column {
+  display: flex; /* Use flexbox to arrange items horizontally */
+  justify-content: center; /* Center the items horizontally */
+}
+
+
+.NumberCards {
+  display: flex;
+  justify-content: space-around; /* Ensure even spacing around items */
+  align-items: flex-start; /* Align items towards the top */
+  height: 100vh; /* Full viewport height */
+  padding: 300px 300px; /* Add padding to the left and right sides */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.NumberCard {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
