@@ -9,19 +9,64 @@
   justify-content: center; /* Center the items horizontally */
 }
 
+.Background {
+  background-image: url('/src/assets/Lightcoffee.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem; /* Adjust padding as needed */
+}
+.NavBar > * {
+  margin: 0 5rem !important; /* Add horizontal margin between items */
+}
+
 
 .NumberCards {
   display: flex;
-  justify-content: space-around; /* Ensure even spacing around items */
-  align-items: flex-start; /* Align items towards the top */
-  height: 100vh; /* Full viewport height */
-  padding: 300px 300px; /* Add padding to the left and right sides */
-  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+  flex-direction: row;
+  justify-content: center;
+  padding: 3rem 0; /* Adjust vertical padding to add space between navbar and numbers */
+  box-sizing: border-box;
+}
+.NumberCard {
+  margin: 0 1rem; /* Add horizontal margin between items */
 }
 
-.NumberCard {
-  display: flex; /* Use flexbox */
-  flex-direction: column; /* Arrange items vertically */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
+.noWrap {
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+
+
+/* Media queries for phone sizes */
+
+@media (max-width: 640px) {
+  .NavBar {
+    flex-direction: row; /* Keep items in a row */
+    justify-content: space-between; /* Space items evenly along the row */
+    padding-top: 1rem; /* Adjust padding as needed */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .NavBar > * {
+    margin: 0 !important; /* Remove vertical margin */
+  }
+
+  .NumberCards {
+    flex-wrap: wrap; /* Allow flex items to wrap */
+    justify-content: center; /* Center items horizontally */
+    padding: 3rem 1rem; /* Adjust padding */
+  }
+
+  .NumberCard {
+    flex-basis: calc(33.33% - 2rem); /* Set flex basis to occupy 33.33% width with some spacing */
+    margin: 1rem; /* Add margin between NumberCards */
+  }
 }

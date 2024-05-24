@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Number } from './components/Number';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import ButtonAppBar from "./components/NavBar";
-import NetWorth from "./components/Networth";
+import Button from '@mui/material/Button';
+import { Typography } from "@mui/material";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-
   const theme = createTheme({
     palette: {
-      mode: darkMode ? 'dark' : 'light',
+      mode: 'light', // Set the mode to 'light'
       background: {
-        default: darkMode ? '#37474f' : '#D5C7BC',
+        default: '#37474f', // Light mode background color
       },
     },
     typography: {
@@ -23,17 +21,23 @@ function App() {
     },
   });
 
-  const handleThemeChange = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <ButtonAppBar darkMode={darkMode} handleThemeChange={handleThemeChange} />
+        
+
+        <div className="Background">
+
+        <div className="NavBar">
+        <Button variant="outlined">Metrics</Button>  
+        <Typography sx={{ fontSize: '2rem', whiteSpace: 'nowrap' }}>Financial Tracker</Typography>
+        <Button variant="outlined">Login</Button> 
+        </div> 
+
 
         <div className="NumberCards">
+
           <div className="NumberCard">
             <Number label="Net Worth" value="$10,000" />
           </div>
@@ -45,7 +49,8 @@ function App() {
           </div>
         </div>
 
-        <NetWorth/>
+        </div>
+
       </div>
     </ThemeProvider>
   );
