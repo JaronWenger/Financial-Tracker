@@ -33,6 +33,7 @@
   justify-content: center;
   padding: 3rem 0; /* Adjust vertical padding to add space between navbar and numbers */
   box-sizing: border-box;
+  padding-bottom: 6rem;
 }
 .NumberCard {
   margin: 0 1rem; /* Add horizontal margin between items */

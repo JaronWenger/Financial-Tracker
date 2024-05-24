@@ -30,9 +30,10 @@ function App() {
         <div className="Background">
 
         <div className="NavBar">
-        <Button variant="outlined">Metrics</Button>  
-        <Typography sx={{ fontSize: '2rem', whiteSpace: 'nowrap' }}>Financial Tracker</Typography>
-        <Button variant="outlined">Login</Button> 
+        <Button variant="outlined" sx={{ color: 'black', borderColor: 'black' }}>Metrics</Button>  
+<Typography sx={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}>Financial Tracker</Typography>
+<Button variant="outlined" sx={{ color: 'black', borderColor: 'black' }}>Login</Button>
+
         </div> 
 
 
