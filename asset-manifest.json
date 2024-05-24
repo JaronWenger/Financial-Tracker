@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Financial-Tracker/static/css/main.1914e4ac.css",
-    "main.js": "/Financial-Tracker/static/js/main.c22875ed.js",
+    "main.css": "/Financial-Tracker/static/css/main.932e15f7.css",
+    "main.js": "/Financial-Tracker/static/js/main.ecd40bd5.js",
     "static/media/Lightcoffee.jpg": "/Financial-Tracker/static/media/Lightcoffee.14b14bf4be6cfa0f78ba.jpg",
     "index.html": "/Financial-Tracker/index.html",
-    "main.1914e4ac.css.map": "/Financial-Tracker/static/css/main.1914e4ac.css.map",
-    "main.c22875ed.js.map": "/Financial-Tracker/static/js/main.c22875ed.js.map"
+    "main.932e15f7.css.map": "/Financial-Tracker/static/css/main.932e15f7.css.map",
+    "main.ecd40bd5.js.map": "/Financial-Tracker/static/js/main.ecd40bd5.js.map"
   },
   "entrypoints": [
-    "static/css/main.1914e4ac.css",
-    "static/js/main.c22875ed.js"
+    "static/css/main.932e15f7.css",
+    "static/js/main.ecd40bd5.js"
   ]
 }
