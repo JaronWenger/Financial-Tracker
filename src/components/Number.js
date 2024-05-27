@@ -2,11 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 export const Number = ({ label, value }) => {
   const cardRef = useRef(null);
@@ -20,34 +24,61 @@ export const Number = ({ label, value }) => {
     setFontSize(`${maxFontSize - 10}px`);
   }, [value]);
 
-  return (
-    <div className='NumberCard' style={{ marginBottom: '20px' }}>
-      <Card ref={cardRef} sx={{ width: '300px', height: '200px', backgroundColor: 'transparent', border: 'none', boxShadow: 'none' }}>
+  const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+      •
+    </Box>
+  );
 
-          <Stack direction="column" justifyContent="center" alignItems="center" sx={{ height: '100%' }}>
+  const card = (
+    <React.Fragment>
+      <CardContent>
+
+
+        <Stack direction="column" justifyContent="center" alignItems="center" sx={{ height: '100%' }}>
             <Typography ref={textRef} gutterBottom variant="h5" component="div" sx={{ fontSize, color: 'black' }}>
               {value}
             </Typography>
           </Stack>
 
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {label}
+        </Typography>
+        
+        <Typography variant="body2">
+          well meaning and kindly.
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Adjust</Button>
+      </CardActions>
+    </React.Fragment>
+  );
+
+
+
+  return (
+    <div className='NumberCard' style={{ marginBottom: '20px' }}>
+
+    <Box sx={{ minWidth: 275 }}>
+      <Card variant="outlined">{card}</Card>
+    </Box>
+
+
+
+
+
+
+      <Card ref={cardRef} sx={{ width: '300px', height: '200px', backgroundColor: 'transparent', border: 'none', boxShadow: 'none' }}>
+
+
       </Card>
-      <div style={{ position: 'relative', marginTop: '-20px' }}>
-        <Accordion sx={{ borderRadius: '800px' }}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
-            sx={{ minHeight: '50px', backgroundColor: 'rgba(255, 255, 255, 0.5)' }} // Set a transparent background
-          >
-            {label}
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Content for Accordion 1
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </div>
+      
     </div>
   );
 };

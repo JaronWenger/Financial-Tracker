@@ -13,6 +13,10 @@
   background-image: url('/src/assets/Lightcoffee.jpg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
+
+  min-height: 80vh; /* Ensure the background covers at least the full viewport height */
+  display: flex;
+  flex-direction: column;
 }
 
 .NavBar {
@@ -23,7 +27,7 @@
   padding-top: 2rem; /* Adjust padding as needed */
 }
 .NavBar > * {
-  margin: 0 5rem !important; /* Add horizontal margin between items */
+  margin: 0 9vw !important; /* Add horizontal margin between items */
 }
 
 
@@ -42,9 +46,11 @@
 .noWrap {
   white-space: nowrap; /* Prevent text from wrapping */
 }
-
-
-
+.title {
+  font-size: 5rem;
+  margin-bottom: 0;
+  line-height: 1; 
+}
 /* Media queries for phone sizes */
 
 @media (max-width: 640px) {
@@ -70,4 +76,35 @@
     flex-basis: calc(33.33% - 2rem); /* Set flex basis to occupy 33.33% width with some spacing */
     margin: 1rem; /* Add margin between NumberCards */
   }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0;
+    line-height: 1; 
+  }
+
+  .ButtonContainer {
+    margin-top: 0rem !important; /* Increase the margin-top to move the button container down */
+  }
+}
+
+
+.small-button {
+  width: auto; /* Let the button width be determined by its content */
+  padding: 0.5rem 5rem; /* Adjust the padding as needed */
+  margin-top: 8rem; /* Increase the margin-top to move the button down */
+}
+.ButtonContainer {
+  display: flex;
+  justify-content: flex-start; /* Align content to the right */
+  width: 100%;
+  padding-left: .5rem; /* Add padding to the right side */
+  margin-top: 2rem; /* Increase the margin-top to move the button container down */
+}
+
+.Content {
+  padding-left: 5vw;
+  text-align: left; /* Ensure text aligns to the left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
