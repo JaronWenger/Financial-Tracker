@@ -56,7 +56,7 @@ export const Number = ({ label, value, dataType, more }) => {
 
       </div>
 
-      <div className='CardButton'>
+      <div className='CardButton' >
       <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Adjust</Button>
       </div>
       

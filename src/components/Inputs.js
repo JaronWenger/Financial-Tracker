@@ -3,7 +3,7 @@ import { InputForm } from './InputForm';
 import Button from '@mui/material/Button';
 import { InvestmentForm } from './InvestmentForm';
 
-export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpenses, setAnnualExpenses, currentNetWorth, setCurrentNetWorth, updateNetWorthToCurrent  }) => {
+export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpenses, setAnnualExpenses, currentNetWorth, setCurrentNetWorth, handleCalculate }) => {
 
 
 
@@ -31,7 +31,7 @@ export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpen
     <InvestmentForm stocksInput={5} bondsInput={2} cashInput={-3}/>
 
 
-    <Button onClick={updateNetWorthToCurrent} variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' }, minWidth: '30vw', alignContent: "center", margin: '0 auto', marginTop: "4rem", marginBottom: "2rem",     display: 'block' }}>Calculate</Button>  
+    <Button onClick={handleCalculate} variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' }, minWidth: '30vw', alignContent: "center", margin: '0 auto', marginTop: "4rem", marginBottom: "2rem",     display: 'block' }}>Calculate</Button>  
 
 
     </div>

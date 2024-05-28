@@ -92,6 +92,9 @@ justify-content: center; /* Add this to center vertically */
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
+.CardButton > Button {
+  margin-top: auto; /* Push the button to the bottom */
+}
 
 
 .NumberCard .CardContent {
@@ -118,7 +121,7 @@ justify-content: center; /* Add this to center vertically */
   display: flex;
   flex-direction: row;
   justify-content: center; /* Adjust the spacing between cards */
-  width: 100%; /* Ensure full width */
+  width: 100vw; /* Ensure full width */
   padding: 5rem 0;  /* top */
   box-sizing: border-box;
   padding-bottom: 6rem;
@@ -224,8 +227,14 @@ justify-content: center; /* Add this to center vertically */
 
   .Table {
 
-    min-width: 25rem;
+    min-width: 20rem;
+    padding: .1rem;
   
+  }
+  .Inputs {
+    background-color: #A9947E;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0);
+
   }
 }
 
