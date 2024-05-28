@@ -128,7 +128,7 @@ justify-content: center; /* Add this to center vertically */
 .Table {
   height: auto;
   min-width: 40rem;
-  min-height: 56rem;
+
   display: flex;
   flex-direction: column;
 
@@ -221,7 +221,18 @@ justify-content: center; /* Add this to center vertically */
   .ButtonContainer {
     margin-top: 0rem !important;
   }
+
+  .Table {
+
+    min-width: 25rem;
+  
+  }
 }
+
+
+
+
+
 
 .small-button {
   width: auto;
