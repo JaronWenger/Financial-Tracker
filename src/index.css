@@ -12,7 +12,8 @@
   background-image: url('/src/assets/Lightcoffee.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 80vh;
+  min-height: 47rem;
+  max-height: 47rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 4px 8px rgba(0, 0, 0.1, 0.1);
@@ -72,8 +73,6 @@ justify-content: center; /* Add this to center vertically */
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
-
-
 }
 .Label {
   font-size: 2rem; /* Standard font size */
@@ -113,6 +112,13 @@ justify-content: center; /* Add this to center vertically */
 }
 
 @media (max-width: 640px) {
+  .paid-icon-large {
+    font-size: 1.2rem !important; 
+  }
+  .Background {
+    min-height: 30rem;
+    max-height: 30rem;
+  }
   .NavBar {
     flex-direction: row;
     justify-content: space-between;
@@ -126,7 +132,7 @@ justify-content: center; /* Add this to center vertically */
   }
 
   h3 {
-    font-size: 1rem !important;
+    font-size: .9rem !important;
   }
 
   .NumberCards {

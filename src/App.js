@@ -29,7 +29,7 @@ function App() {
         <div className="Background">
           <div className="NavBar">
             <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Metrics</Button>  
-            <h3 style={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}><PaidIcon fontSize="large"  style={{ verticalAlign: 'middle', marginBottom: '5px' }}/> Financial Tracker</h3>
+            <h3 style={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}><PaidIcon className="paid-icon-large" fontSize="large"  style={{ verticalAlign: 'middle', marginBottom: '5px' }}/> Financial Tracker</h3>
             <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Login</Button>
           </div> 
           <div className="Content">
