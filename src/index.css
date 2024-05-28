@@ -128,10 +128,10 @@ justify-content: center; /* Add this to center vertically */
 .Table {
   height: auto;
   min-width: 40rem;
-  min-height: 50rem;
+  min-height: 65rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   margin: 0 2vw;
   border: .1px solid #333; /* Add a dark border */
   border-radius: 8px; /* Optional: add border radius for rounded corners */
@@ -146,19 +146,32 @@ justify-content: center; /* Add this to center vertically */
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  
 }
 .FormLabel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  max-width: 20rem;
 }
 .FormLabel * {
   margin-top: 0;
   margin-bottom: 0; /* Adjust the margin between h2 and p */
 
 }
-
+.InvestmentForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+}
 
 
 

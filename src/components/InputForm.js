@@ -9,6 +9,18 @@ export const InputForm = ({ title, description, input }) => {
     };
 
 
+// Check if input is passed through
+if (input === undefined) {
+    return (
+        <div className='InputForm'>
+        <div className='FormLabel'>
+            <h2>{title}</h2>
+            <p>{description}</p>
+        </div>
+        </div>
+    );
+    }
+
   return (
 
     <div className='InputForm'>
