@@ -45,7 +45,7 @@ function App() {
             <Number label="Net Worth" value="$10,000" more="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
           </div>
           <div className="NumberCard">
-            <Number label="Savings Rate" value="20%" more="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
+            <Number label="Savings Rate" value="2%" more="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
           </div>
           <div className="NumberCard">
             <Number label="FIRE #" value="$1,200,000" more="sLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ."/>
