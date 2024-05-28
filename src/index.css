@@ -128,7 +128,7 @@ justify-content: center; /* Add this to center vertically */
 .Table {
   height: auto;
   min-width: 40rem;
-  min-height: 65rem;
+  min-height: 56rem;
   display: flex;
   flex-direction: column;
 
@@ -148,7 +148,7 @@ justify-content: center; /* Add this to center vertically */
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;  /*  CHANGE ITEM SPACING */
   
 }
 .FormLabel {
@@ -170,7 +170,7 @@ justify-content: center; /* Add this to center vertically */
   align-items: center;
   padding-left: 4rem;
   padding-right: 4rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 

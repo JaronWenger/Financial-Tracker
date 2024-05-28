@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { Number } from './components/Number';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -8,6 +8,19 @@ import { Inputs } from "./components/Inputs";
 
 
 function App() {
+  const [netWorth, setNetWorth] = useState(10000);
+  const [savingsRate, setSavingsRate] = useState(0.02);
+  const [fireNumber, setFireNumber] = useState(1200000);
+  // ALL TEXT FIELDS BELOW
+  const [age, setAge] = useState(35);
+  const [annualIncome, setAnnualIncome] = useState(80000);
+  const [annualExpenses, setAnnualExpenses] = useState(30000);
+  const [currentNetWorth, setCurrentNetWorth] = useState(20000);
+
+  const updateNetWorthToCurrent = () => {
+    setNetWorth(currentNetWorth);
+  };
+
   const theme = createTheme({
     palette: {
       mode: 'light', // Set the mode to 'light'
@@ -44,21 +57,26 @@ function App() {
 
         <div className="NumberCards">
           <div className="NumberCard">
-            <Number label="Net Worth" value="$10,000" more="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
+            <Number label="Net Worth" value={netWorth} dataType="money" more="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
           </div>
           <div className="NumberCard">
-            <Number label="Savings Rate" value="2%" more="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
+            <Number label="Savings Rate" value={savingsRate} dataType="percent" more="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
           </div>
           <div className="NumberCard">
-            <Number label="FIRE #" value="$1,200,000" more="sLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ."/>
+            <Number label="FIRE #" value={fireNumber} dataType="money" more="sLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ."/>
           </div>
         </div>
 
         <div className="Inputs">
-          <Inputs/>
+          <Inputs
+            age={age} setAge={setAge}
+            annualIncome={annualIncome} setAnnualIncome={setAnnualIncome}
+            annualExpenses={annualExpenses} setAnnualExpenses={setAnnualExpenses}
+            currentNetWorth={currentNetWorth} setCurrentNetWorth={setCurrentNetWorth}
+
+            updateNetWorthToCurrent={updateNetWorthToCurrent}
+            />
         </div>
-
-
 
       </div>
     </ThemeProvider>
