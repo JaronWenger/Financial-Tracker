@@ -1,22 +1,21 @@
-
-
 .Row {
-  display: flex; /* Use flexbox to arrange items horizontally */
-  justify-content: center; /* Center the items horizontally */
+  display: flex;
+  justify-content: center;
 }
+
 .Column {
-  display: flex; /* Use flexbox to arrange items horizontally */
-  justify-content: center; /* Center the items horizontally */
+  display: flex;
+  justify-content: center;
 }
 
 .Background {
-  background-image: url('/src/assets/Lightcoffee.jpg'); /* Replace with your image path */
+  background-image: url('/src/assets/Lightcoffee.jpg');
   background-size: cover;
   background-position: center;
-
-  min-height: 80vh; /* Ensure the background covers at least the full viewport height */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0.1, 0.1);
 }
 
 .NavBar {
@@ -24,86 +23,151 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem; /* Adjust padding as needed */
+  padding-top: 2rem;
 }
+
 .NavBar > * {
-  margin: 0 9vw !important; /* Add horizontal margin between items */
+  margin: 0 9vw !important;
 }
+
+
 
 
 .NumberCards {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding: 3rem 0; /* Adjust vertical padding to add space between navbar and numbers */
+  justify-content: center; /* Adjust the spacing between cards */
+  margin: 0 1vw;
+  padding: 5rem 0;  /* top */
   box-sizing: border-box;
   padding-bottom: 6rem;
 }
+
 .NumberCard {
-  margin: 0 1rem; /* Add horizontal margin between items */
+  height: auto;
+  min-width: 19rem;
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 2vw;
+  border: .1px solid #333; /* Add a dark border */
+  border-radius: 8px; /* Optional: add border radius for rounded corners */
+  overflow: hidden; /* Ensure the card content doesn't overflow */
+  background: #DEE2DA;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+
+  padding: 1rem;
+
+}
+.TopBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  padding: 3rem;
+
+  min-height: 7rem;
+
+}
+.Label {
+  font-size: 2rem; /* Standard font size */
+}
+.Description {
+  font-size: 1rem; /* Standard font size */
+  color: #666; /* Lighter color for the description */
+  text-align: left; /* Center the text */
+  margin-top: 10px; /* Add some space above the description */
+
+  max-width: 19rem;
+}
+.CardButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
-.noWrap {
-  white-space: nowrap; /* Prevent text from wrapping */
+
+.NumberCard .CardContent {
+  padding: 1rem; /* Add padding inside the card */
 }
+
+
+
+
+.noWrap {
+  white-space: nowrap;
+}
+
 .title {
   font-size: 5rem;
   margin-bottom: 0;
-  line-height: 1; 
+  line-height: 1;
 }
-/* Media queries for phone sizes */
 
 @media (max-width: 640px) {
   .NavBar {
-    flex-direction: row; /* Keep items in a row */
-    justify-content: space-between; /* Space items evenly along the row */
-    padding-top: 1rem; /* Adjust padding as needed */
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
   .NavBar > * {
-    margin: 0 !important; /* Remove vertical margin */
+    margin: 0 !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
   }
 
   .NumberCards {
-    flex-wrap: wrap; /* Allow flex items to wrap */
-    justify-content: center; /* Center items horizontally */
-    padding: 3rem 1rem; /* Adjust padding */
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
   }
 
   .NumberCard {
-    flex-basis: calc(33.33% - 2rem); /* Set flex basis to occupy 33.33% width with some spacing */
-    margin: 1rem; /* Add margin between NumberCards */
+    width: 90%; /* Ensures the cards are not full width, but still centered */
+    max-width: 19rem; /* Keeps the max width consistent */
+    margin: 1rem 0; /* Ensures consistent vertical margin between cards */
   }
+
   .title {
     font-size: 2rem;
     margin-bottom: 0;
-    line-height: 1; 
+    line-height: 1;
   }
 
   .ButtonContainer {
-    margin-top: 0rem !important; /* Increase the margin-top to move the button container down */
+    margin-top: 0rem !important;
   }
 }
 
-
 .small-button {
-  width: auto; /* Let the button width be determined by its content */
-  padding: 0.5rem 5rem; /* Adjust the padding as needed */
-  margin-top: 8rem; /* Increase the margin-top to move the button down */
+  width: auto;
+  padding: 0.5rem 5rem;
+  margin-top: 8rem;
 }
+
 .ButtonContainer {
   display: flex;
-  justify-content: flex-start; /* Align content to the right */
+  justify-content: flex-start;
   width: 100%;
-  padding-left: .5rem; /* Add padding to the right side */
-  margin-top: 2rem; /* Increase the margin-top to move the button container down */
+  padding-left: .5rem;
+  margin-top: 2rem;
 }
 
 .Content {
   padding-left: 5vw;
-  text-align: left; /* Ensure text aligns to the left */
+  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -3,7 +3,6 @@ import { Number } from './components/Number';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { Typography } from "@mui/material";
 import PaidIcon from '@mui/icons-material/Paid';
 
 
@@ -30,7 +29,7 @@ function App() {
         <div className="Background">
           <div className="NavBar">
             <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Metrics</Button>  
-            <Typography sx={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}><PaidIcon fontSize="large"  style={{ verticalAlign: 'middle', marginBottom: '5px' }}/> Financial Tracker</Typography>
+            <h3 style={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}><PaidIcon fontSize="large"  style={{ verticalAlign: 'middle', marginBottom: '5px' }}/> Financial Tracker</h3>
             <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Login</Button>
           </div> 
           <div className="Content">
@@ -43,13 +42,13 @@ function App() {
         </div>
         <div className="NumberCards">
           <div className="NumberCard">
-            <Number label="Net Worth" value="$10,000" />
+            <Number label="Net Worth" value="$10,000" more="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
           </div>
           <div className="NumberCard">
-            <Number label="Savings Rate" value="20%" />
+            <Number label="Savings Rate" value="20%" more="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"/>
           </div>
           <div className="NumberCard">
-            <Number label="FIRE #" value="$1,200,000" />
+            <Number label="FIRE #" value="$1,200,000" more="sLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ."/>
           </div>
         </div>
       </div>
