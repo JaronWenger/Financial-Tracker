@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Button from '@mui/material/Button';
 
-export const Number = ({ label, value, dataType, more }) => {
+export const Number = ({ label, value, dataType, more, scrollToAdjustments }) => {
   const valueRef = useRef();
   const [fontSize, setFontSize] = useState('6rem');
 
@@ -57,7 +57,7 @@ export const Number = ({ label, value, dataType, more }) => {
       </div>
 
       <div className='CardButton' >
-      <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Adjust</Button>
+      <Button onClick={scrollToAdjustments} variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Adjust</Button>
       </div>
       
       

@@ -155,9 +155,12 @@ justify-content: center; /* Add this to center vertically */
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 1rem;  /*  CHANGE ITEM SPACING */
-  
+  padding-top: 0rem;  /*  CHANGE ITEM SPACING */
 }
+.PlaceHolder {
+  padding-top: 1rem;
+}
+
 .FormLabel {
   display: flex;
   flex-direction: column;
@@ -180,7 +183,29 @@ justify-content: center; /* Add this to center vertically */
   padding-top: 1rem;
 }
 
+.SwitchForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Keep items centered vertically */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0; /* Reset margins */
+}
 
+.SwitchForm p {
+  margin: 0; /* Reset margins for paragraphs */
+}
+.switch-container {
+  margin-top: 0px; /* Adjust as needed */
+}
+.AndMore {
+  display: flex;
+  flex-direction: row;
+}
+.CircleButton {
+  padding-left: 2rem;
+  padding-top: .5rem;
+}
 
 
 @media (max-width: 640px) {

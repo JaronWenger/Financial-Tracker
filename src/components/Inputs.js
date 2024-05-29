@@ -2,30 +2,49 @@ import React from 'react'
 import { InputForm } from './InputForm';
 import Button from '@mui/material/Button';
 import { InvestmentForm } from './InvestmentForm';
+import { SwitchForm } from './SwitchForm';
+import CircleButton from './CircleButton';
+
 
 export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpenses, setAnnualExpenses, currentNetWorth, setCurrentNetWorth, handleCalculate }) => {
+
 
 
 
   return (
     <div className='Table'>
 
+    <div className='PlaceHolder'/>
 
     <InputForm title="Age" description="The age you are today." input={age} setInput={setAge} />
 
+    <div className='PlaceHolder'/>
+
+    <SwitchForm />
+
     <InputForm title="Annual Income" description="Household income after taxes." input={annualIncome} setInput={setAnnualIncome} />
+    <CircleButton />
 
-    <InputForm title="Annual Expenses" description="The age you are today." input={annualExpenses} setInput={setAnnualExpenses} />
+    <div className='PlaceHolder'/>
 
+    <InputForm title="Annual Expenses" description="Your current cost-of-living" input={annualExpenses} setInput={setAnnualExpenses} />
+    <CircleButton />
 
-    <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '3rem' }} />
+    <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '2rem' }} />
+
+    <div className='PlaceHolder'/>
 
     <InputForm title="Current Net Worth" description="The current value of all assets, minus the total of all liabilities." input={currentNetWorth} setInput={setCurrentNetWorth} />
+    <CircleButton />
+    
+    <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '2rem' }} />
 
-    <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '3rem' }} />
+    <div className='PlaceHolder'/>
 
     <InputForm title="Asset Allocation %" description="Diversity of your investments." />
     <InvestmentForm stocksInput={80} bondsInput={15} cashInput={5}/>
+
+    <div className='PlaceHolder'/>
 
     <InputForm title="Expected Rate of Return" description="Subtract inflation from rate of return." />
     <InvestmentForm stocksInput={5} bondsInput={2} cashInput={-3}/>
