@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/Financial-Tracker/static/css/main.e6a5993d.css",
+    "main.css": "/Financial-Tracker/static/css/main.af8e7ea6.css",
     "main.js": "/Financial-Tracker/static/js/main.614ddf21.js",
     "static/media/Lightcoffee.jpg": "/Financial-Tracker/static/media/Lightcoffee.dee2334bb050c3ba7c61.jpg",
+    "static/media/Darkcoffee.jpg": "/Financial-Tracker/static/media/Darkcoffee.1d202eb1865d0b87774a.jpg",
     "index.html": "/Financial-Tracker/index.html",
-    "main.e6a5993d.css.map": "/Financial-Tracker/static/css/main.e6a5993d.css.map",
+    "main.af8e7ea6.css.map": "/Financial-Tracker/static/css/main.af8e7ea6.css.map",
     "main.614ddf21.js.map": "/Financial-Tracker/static/js/main.614ddf21.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6a5993d.css",
+    "static/css/main.af8e7ea6.css",
     "static/js/main.614ddf21.js"
   ]
 }
