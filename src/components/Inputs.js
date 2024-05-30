@@ -6,7 +6,7 @@ import { SwitchForm } from './SwitchForm';
 import CircleButton from './CircleButton';
 
 
-export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpenses, setAnnualExpenses, currentNetWorth, setCurrentNetWorth, handleCalculate }) => {
+export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpenses, setAnnualExpenses, currentNetWorth, setCurrentNetWorth, handleCalculate, isMonthly, toggleFrequency }) => {
 
 
 
@@ -20,22 +20,22 @@ export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpen
 
     <div className='PlaceHolder'/>
 
-    <SwitchForm />
+    <SwitchForm isMonthly={isMonthly} toggleFrequency={toggleFrequency}/>
 
-    <InputForm title="Annual Income" description="Household income after taxes." input={annualIncome} setInput={setAnnualIncome} />
-    <CircleButton />
+    <InputForm       title={isMonthly ? "Monthly Income" : "Annual Income"} description="Household income after taxes." input={annualIncome} setInput={setAnnualIncome} />
+
 
     <div className='PlaceHolder'/>
 
-    <InputForm title="Annual Expenses" description="Your current cost-of-living" input={annualExpenses} setInput={setAnnualExpenses} />
-    <CircleButton />
+    <InputForm         title={isMonthly ? "Monthly Expenses" : "Annual Expenses"} description="Your current cost-of-living" input={annualExpenses} setInput={setAnnualExpenses} />
+  
 
     <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '2rem' }} />
 
     <div className='PlaceHolder'/>
 
     <InputForm title="Current Net Worth" description="The current value of all assets, minus the total of all liabilities." input={currentNetWorth} setInput={setCurrentNetWorth} />
-    <CircleButton />
+
     
     <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '2rem' }} />
 

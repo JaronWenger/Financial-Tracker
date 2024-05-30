@@ -257,7 +257,7 @@ justify-content: center; /* Add this to center vertically */
   .Table {
 
     min-width: 20rem;
-    padding: .1rem;
+    padding: .03rem;
   
   }
   .Inputs {

@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 
 export const InputForm = ({ title, description, input, setInput }) => {
     const initialValue = input ? Number(input) : ''; // Initialize state with a starting value of '' or a number if input is provided
     const [holder, setHolder] = useState(initialValue); // Initialize state with a starting value of ''
     const [isValidInput, setIsValidInput] = useState(true); // Initialize state to track if input is valid
+
+        // Update the local state whenever the input prop changes
+        useEffect(() => {
+            if (input !== undefined) {
+                setHolder(input.toString());
+            }
+        }, [input]);
+
 
     const handleHolderChange = (event) => {
         const newValue = event.target.value;
@@ -38,6 +46,22 @@ export const InputForm = ({ title, description, input, setInput }) => {
         );
     }
 
+    //DECIMAL MANAGEMENT
+    const formattedValue = parseFloat(holder);
+
+    // Check if formattedValue is a valid number
+    const isValidNumber = !isNaN(formattedValue);
+    
+    // If formattedValue is a valid number, format it to display only two decimal places
+    const displayValue = isValidNumber ? formattedValue.toFixed(2) : '';
+    
+    // Check if the displayValue has decimals
+    const hasDecimals = displayValue.includes('.');
+    
+    // If displayValue has decimals, remove trailing zeros
+    const trimmedValue = hasDecimals ? displayValue.replace(/0+$/, '').replace(/\.$/, '') : displayValue;
+    
+
     return (
         <div className='InputForm'>
             <div className='FormLabel'>
@@ -47,7 +71,7 @@ export const InputForm = ({ title, description, input, setInput }) => {
             <TextField
                 id="outlined-basic"
                 variant="outlined"
-                value={holder}
+                value={trimmedValue}
                 onChange={handleHolderChange}
                 onBlur={handleBlur}
                 onFocus={handleFocus}

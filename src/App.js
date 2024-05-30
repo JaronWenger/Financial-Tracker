@@ -1,4 +1,4 @@
-import { React, useState, useRef } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import { Number } from './components/Number';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -16,12 +16,20 @@ function App() {
   const [annualIncome, setAnnualIncome] = useState(80000);
   const [annualExpenses, setAnnualExpenses] = useState(30000);
   const [currentNetWorth, setCurrentNetWorth] = useState(20000);
+//Annualy v Monthly
+  const [isMonthly, setIsMonthly] = useState(false);
 
   const metricsRef = useRef(null); // Create a ref for the Metrics section
   const adjustRef = useRef(null); // Create a ref for the Adjustments section
 
 
+  useEffect(() => {
+    setIsMonthly(annualIncome < 10000 || annualExpenses < 10000); // Assuming yearly amounts are more than 10000
+  }, [annualIncome, annualExpenses]);
+
+
   const handleCalculate = () => {
+
     updateNetWorthToCurrent();
     updateFireNumberToCurrent();
     updateSavingsRateToCurrent();
@@ -38,10 +46,16 @@ function App() {
   };
   //FireNumberCalculator
   const updateFireNumberToCurrent = () => {
-    const newFire = annualExpenses / .04
+    const annualExpensesValue = isMonthly ? annualExpenses * 12 : annualExpenses;
+    const newFire = annualExpensesValue / 0.04;
     setFireNumber(newFire);
+};
+  //Switch Annualy and Monthly
+  const toggleFrequency = () => {
+    setAnnualIncome(prevIncome => isMonthly ? prevIncome * 12 : prevIncome / 12);
+    setAnnualExpenses(prevExpenses => isMonthly ? prevExpenses * 12 : prevExpenses / 12);
+    setIsMonthly(prevState => !prevState);
   };
-
 
 
 
@@ -118,6 +132,9 @@ function App() {
             currentNetWorth={currentNetWorth} setCurrentNetWorth={setCurrentNetWorth}
 
             handleCalculate={handleCalculate}
+
+            isMonthly={isMonthly}
+            toggleFrequency={toggleFrequency}
             />
         </div>
 
