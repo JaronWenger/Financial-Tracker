@@ -6,6 +6,49 @@ import Button from '@mui/material/Button';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Inputs } from "./components/Inputs";
 
+import { API_URL } from "./utils";
+const apiUrl = API_URL
+const userId = '123'; // Replace with actual user ID
+
+// Example function to fetch user data from the backend
+const fetchUserData = async (userId) => {
+  try {
+    const response = await fetch(`${apiUrl}/api/user/${userId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch user data');
+    }
+    const userData = await response.json();
+    return userData;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+// Example function to update user data on the backend
+const updateUserData = async (userId, newData) => {
+  try {
+    const response = await fetch(`${apiUrl}/api/user/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newData),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to update user data');
+    }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+
+
+
 
 function App() {
   const [netWorth, setNetWorth] = useState(20000);
@@ -27,9 +70,12 @@ function App() {
     setIsMonthly(annualIncome < 10000 || annualExpenses < 10000); // Assuming yearly amounts are more than 10000
   }, [annualIncome, annualExpenses]);
 
+///////////////////////////BACKEND CONNECTION//////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+
 
   const handleCalculate = () => {
-
     updateNetWorthToCurrent();
     updateFireNumberToCurrent();
     updateSavingsRateToCurrent();
@@ -118,7 +164,6 @@ function App() {
             <Number label="FIRE #" value={fireNumber} dataType="money" more="The Fire Number, based on the 4% rule, represents the total savings needed for retirement. It ensures sustainable income to maintain desired lifestyle post-retirement." scrollToAdjustments={scrollToAdjustments}/>
           </div>
         </div>
-
 
           {/* Invisible helper div for scrolling */}
           <div ref={adjustRef} style={{ position: 'relative' }}></div>
