@@ -8,7 +8,7 @@ import { Inputs } from "./components/Inputs";
 
 import { API_URL } from "./utils";
 const apiUrl = API_URL
-const userId = '123'; // Replace with actual user ID
+const userId = '1'; // Replace with actual user ID
 
 // Example function to fetch user data from the backend
 const fetchUserData = async (userId) => {
@@ -56,7 +56,7 @@ function App() {
   const [fireNumber, setFireNumber] = useState(750000);
   // ALL TEXT FIELDS BELOW
   const [age, setAge] = useState(35);
-  const [annualIncome, setAnnualIncome] = useState(80000);
+  const [annualIncome, setAnnualIncome] = useState(999);
   const [annualExpenses, setAnnualExpenses] = useState(30000);
   const [currentNetWorth, setCurrentNetWorth] = useState(20000);
 //Annualy v Monthly
@@ -72,15 +72,54 @@ function App() {
 
 ///////////////////////////BACKEND CONNECTION//////////////////////////////
 
+useEffect(() => {
+  // Fetch user data when component mounts
+  const fetchData = async () => {
+    const userData = await fetchUserData(userId);
+    if (userData) {
+      setNetWorth(userData.netWorth);
+      setSavingsRate(userData.savingsRate);
+      setFireNumber(userData.fireNumber);
+      setAge(userData.age);
+      setAnnualIncome(userData.annualIncome);
+      setAnnualExpenses(userData.annualExpenses);
+      setCurrentNetWorth(userData.currentNetWorth);
+    }
+  };
+  fetchData();
+}, []);
+
 ///////////////////////////////////////////////////////////////////////////
 
-
-  const handleCalculate = () => {
-    updateNetWorthToCurrent();
-    updateFireNumberToCurrent();
-    updateSavingsRateToCurrent();
-    scrollToMetrics();
+const handleCalculate = async () => {
+  // Update the net worth, savings rate, and fire number based on current values
+  updateNetWorthToCurrent();
+  updateSavingsRateToCurrent();
+  updateFireNumberToCurrent();
+  
+  // Send updated user data to the backend
+  const newData = {
+    netWorth: netWorth,
+    savingsRate: savingsRate,
+    fireNumber: fireNumber,
+    age: age,
+    annualIncome: annualIncome,
+    annualExpenses: annualExpenses,
+    currentNetWorth: currentNetWorth
   };
+
+  try {
+    const result = await updateUserData(userId, newData);
+    console.log('User data updated successfully:', result);
+    // Scroll to the metrics section
+    scrollToMetrics();
+  } catch (error) {
+    console.error('Failed to update user data:', error);
+  }
+};
+
+
+
   //NetWorthCalculator
   const updateNetWorthToCurrent = () => {
     setNetWorth(currentNetWorth);
