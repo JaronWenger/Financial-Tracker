@@ -22,12 +22,12 @@ export const Inputs = ({ age, setAge, annualIncome, setAnnualIncome, annualExpen
 
     <SwitchForm isMonthly={isMonthly} toggleFrequency={toggleFrequency}/>
 
-    <InputForm       title={isMonthly ? "Monthly Income" : "Annual Income"} description="Household income after taxes." input={annualIncome} setInput={setAnnualIncome} />
+    <InputForm       title={isMonthly === 0 ? "Monthly Income" : "Annual Income"} description="Household income after taxes." input={annualIncome} setInput={setAnnualIncome} />
 
 
     <div className='PlaceHolder'/>
 
-    <InputForm         title={isMonthly ? "Monthly Expenses" : "Annual Expenses"} description="Your current cost-of-living" input={annualExpenses} setInput={setAnnualExpenses} />
+    <InputForm         title={isMonthly === 0 ? "Monthly Expenses" : "Annual Expenses"} description="Your current cost-of-living" input={annualExpenses} setInput={setAnnualExpenses} />
   
 
     <hr style={{ border: 'none', backgroundColor: 'black', height: '2px', width: '90%', marginTop: '2rem' }} />

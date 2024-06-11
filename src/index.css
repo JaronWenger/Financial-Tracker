@@ -293,3 +293,69 @@ justify-content: center; /* Add this to center vertically */
   flex-direction: column;
   align-items: flex-start;
 }
+
+
+
+
+/* AUTH STYLING */
+
+/* Updated Index.css */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-family: 'Arial', sans-serif; /* Choose a consistent font */
+  background-color: #141B29; /* Almost white background */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;    /* Center horizontally */
+  height: 100vh;          /* Full viewport height */
+  background-color: #141B29; /* Light background color */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Add more space between elements */
+  padding: 20px; /* Padding around the form */
+  border: 1px solid #f6f6f0; /* Subtle border for form */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f6f6f0; /* White background for the form */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 500px; /* Increase the max-width to make the form wider */
+  min-width: 340px;
+}
+
+.text-field {
+  width: 100%; /* Ensure text fields take the full width of the form */
+}
+
+.button {
+  width: 100%; /* Ensure buttons take the full width of the form */
+  padding: 12px; /* Consistent padding */
+  background-color: #ff9500; /* Orange color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to pointer */
+}
+
+.button:hover {
+  background-color: #e57f00; /* Darker orange on hover */
+}
+
+.error-message {
+  color: red; /* Red for error messages */
+  border: 1px solid red; /* Border for visibility */
+  padding: 10px; /* Padding for comfort */
+  text-align: center; /* Center the text */
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  gap: 15px; /* Space between elements */
+}

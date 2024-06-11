@@ -12,7 +12,7 @@ export const SwitchForm = ({ isMonthly, toggleFrequency }) => {
     <div className='SwitchForm'>
     <p className="bottom-aligned">Y</p>
       <div className="switch-container">
-        <Switch {...label} checked={isMonthly} onChange={toggleFrequency} color="default" />
+        <Switch {...label} checked={isMonthly === 0} onChange={toggleFrequency} color="default" />
       </div>
       <p className="bottom-aligned">M</p>
     </div>
