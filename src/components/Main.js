@@ -1,168 +1,52 @@
-import { React, useState, useRef, useEffect } from "react";
-import { Link } from 'react-router-dom'; 
+import React, { useState, useRef } from "react";
 import { Number } from './Number';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import PaidIcon from '@mui/icons-material/Paid';
 import { Inputs } from "./Inputs";
-import { API_URL } from "../utils";
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const apiUrl = API_URL
-const userId = '1'; // Replace with actual user ID
-
-//function to fetch user data from the backend
-const fetchUserData = async (userId) => {
-  try {
-    const response = await fetch(`${apiUrl}/api/user/${userId}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch user data');
-    }
-    const userData = await response.json();
-
-    return userData;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
-//function to update user data on the backend
-const updateUserData = async (userId, newData) => {
-  try {
-    const response = await fetch(`${apiUrl}/api/user/${userId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newData),
-    });
-    if (!response.ok) {
-      throw new Error('Failed to update user data');
-    }
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+import { NavBar } from "./NavBar";
 
 function Main() {
   const [netWorth, setNetWorth] = useState(20000);  //defaults
   const [savingsRate, setSavingsRate] = useState(0.63);
   const [fireNumber, setFireNumber] = useState(750000);
-  // ALL TEXT FIELDS BELOW
   const [age, setAge] = useState(35);
-  const [annualIncome, setAnnualIncome] = useState(999);
+  const [annualIncome, setAnnualIncome] = useState(80000);
   const [annualExpenses, setAnnualExpenses] = useState(30000);
   const [currentNetWorth, setCurrentNetWorth] = useState(20000);
-//Annualy v Monthly
   const [isYearly, setIsYearly] = useState(1);
 
   const metricsRef = useRef(null); // Create a ref for the Metrics section
   const adjustRef = useRef(null); // Create a ref for the Adjustments section
 
+  const handleCalculate = () => {  // Calculate new values
+    const updatedNetWorth = currentNetWorth;
+    const updatedSavingsRate = (annualIncome - annualExpenses) / annualIncome;
+    const annualExpensesValue = isYearly === 0 ? annualExpenses * 12 : annualExpenses;
+    const updatedFireNumber = annualExpensesValue / 0.04;
 
-///////////////////////////BACKEND CONNECTION//////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
+    // Update state with new values
+    setNetWorth(updatedNetWorth);
+    setSavingsRate(updatedSavingsRate);
+    setFireNumber(updatedFireNumber);
 
-useEffect(() => {
-  // Fetch user data when component mounts
-  const fetchData = async () => {
-    const userData = await fetchUserData(userId);
-    if (userData) {
-      setNetWorth(userData.netWorth);
-      setSavingsRate(userData.savingsRate);
-      setFireNumber(userData.fireNumber);
-      setAge(userData.age);
-      setAnnualIncome(userData.annualIncome);
-      setAnnualExpenses(userData.annualExpenses);
-      setCurrentNetWorth(userData.currentNetWorth);
-
-      setIsYearly(userData.YM);
-    }
-  };
-  fetchData();
-}, []);
-
-///////////////////////////////////////////////////////////////////////////
-
-const handleCalculate = async () => {  // Calculate new values
-  const updatedNetWorth = currentNetWorth;
-  const updatedSavingsRate = (annualIncome - annualExpenses) / annualIncome;
-  const annualExpensesValue = isYearly === 0 ? annualExpenses * 12 : annualExpenses;
-  const updatedFireNumber = annualExpensesValue / 0.04;
-
-
-
-  // Update state with new values
-  setNetWorth(updatedNetWorth);
-  setSavingsRate(updatedSavingsRate);
-  setFireNumber(updatedFireNumber);
-
-
-
-  // Construct new data with updated values
-  const newData = {
-    netWorth: updatedNetWorth,
-    savingsRate: updatedSavingsRate,
-    fireNumber: updatedFireNumber,
-    age: age,
-    annualIncome: annualIncome,
-    annualExpenses: annualExpenses,
-    currentNetWorth: currentNetWorth,
-    YM: isYearly // Update YM based on isYearly state
-  };
-
-  try {
-    const result = await updateUserData(userId, newData);
-    console.log('User data updated successfully:', result);
     // Scroll to the metrics section
     scrollToMetrics();
-  } catch (error) {
-    console.error('Failed to update user data:', error);
-  }
-};
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-  //NetWorthCalculator
-  // const updateNetWorthToCurrent = () => {
-  //   setNetWorth(currentNetWorth);
-  // };
-  // //SavingsRateCalculator
-  // const updateSavingsRateToCurrent = () => {
-  //   const newRate = (annualIncome - annualExpenses) / annualIncome;
-  //   setSavingsRate(newRate);
-  // };
-  // //FireNumberCalculator
-  // const updateFireNumberToCurrent = () => {
-  //   const annualExpensesValue = isYearly ? annualExpenses * 12 : annualExpenses;
-  //   const newFire = annualExpensesValue / 0.04;
-  //   setFireNumber(newFire);
-//};
+  };
 
+  const toggleFrequency = () => {
+    setAnnualIncome(prevIncome => (isYearly === 0 ? prevIncome * 12 : prevIncome / 12));
+    setAnnualExpenses(prevExpenses => (isYearly === 0 ? prevExpenses * 12 : prevExpenses / 12));
+    setIsYearly(prevState => (prevState === 1 ? 0 : 1));
+  };
 
+  const scrollToMetrics = () => {
+    metricsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
-
-
-  //Switch Annualy and Monthly
-//Switch Annualy and Monthly
-const toggleFrequency = () => {
-  console.log("Before:", isYearly);
-  setAnnualIncome(prevIncome => (isYearly === 0 ? prevIncome * 12 : prevIncome / 12));
-  setAnnualExpenses(prevExpenses => (isYearly === 0 ? prevExpenses * 12 : prevExpenses / 12));
-  setIsYearly(prevState => (prevState === 1 ? 0 : 1)); // Change this to setisYearly(prevState => (prevState === 1 ? 0 : 1));
-  console.log("After:", isYearly);
-};
-
-
+  const scrollToAdjustments = () => {
+    adjustRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const theme = createTheme({
     palette: {
@@ -179,40 +63,23 @@ const toggleFrequency = () => {
     },
   });
 
-
-  const scrollToMetrics = () => {
-    metricsRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
-  const scrollToAdjustments = () => {
-    adjustRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-          <div className="Background">
-            <div className="NavBar">
-              <Button onClick={scrollToMetrics} variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Metrics</Button>  
-              <h3 style={{ fontSize: '2rem', whiteSpace: 'nowrap', color: 'black' }}><PaidIcon className="paid-icon-large" fontSize="large"  style={{ verticalAlign: 'middle', marginBottom: '5px' }}/> Golden Metrics</h3>
-              <Link to="/login" style={{ textDecoration: 'none' }}>
-              <Button variant="contained" sx={{ color: 'black', bgcolor: '#AA947E', '&:hover': { bgcolor: 'grey' } }}>Login</Button>
-              </Link>
-            </div> 
-              <div className="Content">
-              <h2 className="title" style={{ whiteSpace: 'nowrap', color: 'black', paddingTop: '4.5rem' }}>Track your finances</h2>
-              <h2 className="title" style={{ whiteSpace: 'nowrap', color: 'black', paddingBottom: '2rem' }}>with ease.</h2>
-                <div className="ButtonContainer">
-                <Button onClick={scrollToMetrics} className="small-button" variant="outlined" sx={{ color: 'black', borderColor: 'black', '&:hover': { bgcolor: '#AA947E', borderColor: '#AA947E', color: 'white' } }}>Metrics</Button>
-                </div>
-              </div>
+        <div className="Background">
+          <NavBar scrollToMetrics={scrollToMetrics} back="Login" rAction="/login" header="Golden Metrics"/>
+          <div className="Content">
+            <h2 className="title" style={{ whiteSpace: 'nowrap', color: 'black', paddingTop: '4.5rem' }}>Track your finances</h2>
+            <h2 className="title" style={{ whiteSpace: 'nowrap', color: 'black', paddingBottom: '2rem' }}>with ease.</h2>
+            <div className="ButtonContainer">
+              <Button onClick={scrollToMetrics} className="small-button" variant="outlined" sx={{ color: 'black', borderColor: 'black', '&:hover': { bgcolor: '#AA947E', borderColor: '#AA947E', color: 'white' } }}>Metrics</Button>
+            </div>
           </div>
-
+        </div>
 
         {/* Invisible helper div for scrolling */}
         <div ref={metricsRef} style={{ position: 'relative', top: '-50px' }}></div>
-
 
         <div className="NumberCards">
           <div className="NumberCard">
@@ -226,9 +93,8 @@ const toggleFrequency = () => {
           </div>
         </div>
 
-          {/* Invisible helper div for scrolling */}
-          <div ref={adjustRef} style={{ position: 'relative' }}></div>
-
+        {/* Invisible helper div for scrolling */}
+        <div ref={adjustRef} style={{ position: 'relative' }}></div>
 
         <div className="Inputs">
           <Inputs
@@ -236,14 +102,11 @@ const toggleFrequency = () => {
             annualIncome={annualIncome} setAnnualIncome={setAnnualIncome}
             annualExpenses={annualExpenses} setAnnualExpenses={setAnnualExpenses}
             currentNetWorth={currentNetWorth} setCurrentNetWorth={setCurrentNetWorth}
-
             handleCalculate={handleCalculate}
-
             isMonthly={isYearly}
             toggleFrequency={toggleFrequency}
-            />
+          />
         </div>
-
       </div>
     </ThemeProvider>
   );

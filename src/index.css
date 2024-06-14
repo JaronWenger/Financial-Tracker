@@ -310,10 +310,11 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
+
   align-items: center;    /* Center horizontally */
   height: 100vh;          /* Full viewport height */
-  background-color: #141B29; /* Light background color */
+  background-size: cover;
+  background-image: url('/src/assets/Darkcoffee.jpg');
 }
 
 .form-container {
@@ -325,6 +326,7 @@ body {
   border-radius: 8px; /* Rounded corners */
   background-color: #f6f6f0; /* White background for the form */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-top: 20vh;
   max-width: 500px; /* Increase the max-width to make the form wider */
   min-width: 340px;
 }
