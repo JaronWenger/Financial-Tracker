@@ -4,5 +4,4 @@ A full-stack React and Node.js application live on my VPS. This lightweight web 
 
 https://thegoldenmetrics.com/
 
-![Calc](https://raw.githubusercontent.com/JaronWenger/Note-Tracker/main/assets/147181586/ff334cb4-1cf3-4db1-98f3-5105ff71d535)
-
+<img width="1481" alt="Calc" src="https://github.com/JaronWenger/Note-Tracker/assets/147181586/ff334cb4-1cf3-4db1-98f3-5105ff71d535">
