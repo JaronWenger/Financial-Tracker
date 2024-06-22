@@ -6,6 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { useNavigate } from 'react-router-dom'; 
 import { NavBar } from './NavBar';
 import axios from 'axios';
+import { API_URL } from '../utils';
 
 
 
@@ -61,7 +62,7 @@ export const SignUp = ({ onSwitchToLogin }) => {
             try {
               console.log('Sending signup request');
               const response = await axios.post(
-                'http://localhost:3001/api/user/signup',
+                `${API_URL}/user/signup`,
                 { email, password },
                 { withCredentials: true }
               );

@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { NavBar } from './NavBar';
 import axios from 'axios';
+import { API_URL } from '../utils';
 
 
 export const LogIn = () => {
@@ -16,7 +17,7 @@ const onSubmit = async (event) => {
   event.preventDefault();
   try {
     console.log('Submitting login request...');
-    const response = await axios.post('http://localhost:3001/api/user/login', { username, password }, { withCredentials: true });
+    const response = await axios.post(`${API_URL}/user/login`, { username, password }, { withCredentials: true });
     console.log('Login response:', response);
     // Check if the login was successful and redirect if it was
     if (response.status === 200) {

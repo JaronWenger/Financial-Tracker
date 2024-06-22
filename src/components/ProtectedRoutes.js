@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../utils";
 
 const ProtectedRoutes = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(null); // null indicates loading
@@ -8,7 +9,7 @@ const ProtectedRoutes = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/user/auth/check', { withCredentials: true });
+                const response = await axios.get(`${API_URL}/user/auth/check`, { withCredentials: true });
                 setIsAuthenticated(response.data.authenticated);
             } catch (error) {
                 console.error('Error checking authentication', error);

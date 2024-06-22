@@ -35,7 +35,7 @@ function Profile() {
   const handleLogout = async () => {
     try {
       console.log('Logging out...'); // Add console log to track logout process
-      const response = await axios.post('http://localhost:3001/api/user/logout', {}, { withCredentials: true });
+      const response = await axios.post(`${API_URL}/user/logout`, {}, { withCredentials: true });
       console.log('Logout response:', response.data); // Logs "Logout successful" if successful
   
       navigate('/login'); // Redirect to the login page
@@ -49,7 +49,7 @@ function Profile() {
 //function to fetch user data from the backend
 const fetchUserData = async (userId) => {
   try {
-    const response = await fetch(`${apiUrl}/api/user/${userId}`);
+    const response = await fetch(`${apiUrl}/user/${userId}`);
     if (!response.ok) {
       throw new Error('Failed to fetch user data');
     }
@@ -65,7 +65,7 @@ const fetchUserData = async (userId) => {
 //function to update user data on the backend
 const updateUserData = async (userId, newData) => {
   try {
-    const response = await fetch(`${apiUrl}/api/user/${userId}`, {
+    const response = await fetch(`${apiUrl}/user/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const updateUserData = async (userId, newData) => {
 useEffect(() => {
   const fetchUserId = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/user/getUserId', { withCredentials: true });
+      const response = await axios.get(`${API_URL}/user/getUserId`, { withCredentials: true });
       console.log('Fetched userId:', response.data.userId); // Ensure userId is fetched correctly
       setUserId(response.data.userId); // Assuming response.data contains userId
     } catch (error) {
